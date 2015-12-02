@@ -24,4 +24,17 @@ describe Character do
       end
     end
   end
+
+  describe '#class_name' do
+    let(:wizard) { double :base_class, name: :wizard }
+    subject(:wizard_character) { described_class.new(wizard) }
+
+    it 'returns the class name' do
+      expect(wizard_character.class_name).to eq :wizard
+    end
+
+    it 'defaults to :fighter' do
+      expect(character.class_name).to eq :fighter
+    end
+  end
 end

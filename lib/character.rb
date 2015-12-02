@@ -1,7 +1,8 @@
 class Character
-  def initialize
+  def initialize(character_class = BaseClass.new(:fighter, 1))
     @skill_points = 4
     @skills_table = { jump: 0 }
+    @character_class = character_class
   end
 
   def skills(skill)
@@ -13,7 +14,11 @@ class Character
     skills_table[skill] += 1
   end
 
+  def class_name
+    character_class.name
+  end
+
   private
 
-  attr_reader :skills_table, :skill_points
+  attr_reader :skills_table, :skill_points, :character_class
 end
