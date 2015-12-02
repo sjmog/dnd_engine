@@ -5,7 +5,14 @@ describe Character do
 
   describe '#skills' do
     it 'returns the value for a skill' do
-      expect(subject.skills(:jump)).to eq 0
+      expect(character.skills(:jump)).to eq 0
+    end
+  end
+
+  describe '#increment_skill' do
+    it 'increments a skill' do
+      character.increment_skill(:jump)
+      expect(character.skills(:jump)).to eq 1
     end
   end
 end
