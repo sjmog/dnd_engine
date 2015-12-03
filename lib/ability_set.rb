@@ -11,10 +11,18 @@ class AbilitySet
   end
 
   def ability(ability)
-    abilities_table[ability]
+    raw_ability(ability).modifier
+  end
+
+  def increment_ability(ability)
+    abilities_table[ability] += 1
   end
 
   private
 
   attr_reader :abilities_table
+
+  def raw_ability(ability)
+    abilities_table[ability]
+  end
 end
