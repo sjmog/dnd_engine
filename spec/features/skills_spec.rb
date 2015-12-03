@@ -17,8 +17,8 @@ describe 'Character skills' do
 
   context 'without skill points available to spend' do
     it 'I cannot increment ranks on a skill' do
-      allow(skill_set).to receive(:skill_points).and_return 0
-      expect { skill_set.increment_skill(:jump) }.to raise_error 'No skill points available'
+      allow(character).to receive(:skill_points).and_return 0
+      expect { character.increment_skill(:jump) }.to raise_error 'No skill points available'
     end
   end
 end

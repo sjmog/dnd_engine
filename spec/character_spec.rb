@@ -11,6 +11,22 @@ describe Character do
     end
   end
 
+  describe '#increment_skill' do
+    context 'with skill points available to spend' do
+      it 'I can increment ranks on a skill' do
+        expect(skill_set).to receive(:increment_skill)
+        character.increment_skill(:jump)
+      end
+    end
+
+    context 'without skill points available to spend' do
+      it 'I cannot increment ranks on a skill' do
+        allow(character).to receive(:skill_points).and_return 0
+        expect { character.increment_skill(:jump) }.to raise_error 'No skill points available'
+      end
+    end
+  end
+
   describe '#class_names' do
     let(:wizard) { double :base_class, name: :wizard }
     subject(:wizard_character) { described_class.new(classes: [wizard]) }
