@@ -1,24 +1,18 @@
 class Character
-  def initialize(character_class = BaseClass.new(:fighter, 1))
-    @skill_points = 4
-    @skills_table = { jump: 0 }
-    @character_class = character_class
+  def initialize(classes: [BaseClass.new], skills: SkillSet.new)
+    @skills = skills
+    @classes = classes
   end
 
-  def skills(skill)
-    skills_table[skill]
+  def skill(skill)
+    skills.skill(skill)
   end
 
-  def increment_skill(skill)
-    raise 'No skill points available' unless skill_points > 0
-    skills_table[skill] += 1
-  end
-
-  def class_name
-    character_class.name
+  def class_names
+    classes.map(&:name)
   end
 
   private
 
-  attr_reader :skills_table, :skill_points, :character_class
+  attr_reader :classes, :skills
 end

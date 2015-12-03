@@ -1,7 +1,7 @@
 require 'services/skill_check'
 
 describe SkillCheck do
-  let(:character) { double :character, skills: 0 }
+  let(:character) { double :character, skill: 0 }
 
   describe '.with' do
     before do
