@@ -1,8 +1,13 @@
 class Character
-  def initialize(classes: [BaseClass.new], skills: SkillSet.new)
+  def initialize(abilities: AbilitySet.new, classes: [BaseClass.new], skills: SkillSet.new)
+    @abilities = abilities
     @skills = skills
     @classes = classes
     @skill_points = 4
+  end
+
+  def ability(ability)
+    abilities.ability(ability)
   end
 
   def skill(skill)
@@ -20,5 +25,5 @@ class Character
 
   private
 
-  attr_reader :classes, :skills, :skill_points
+  attr_reader :abilities, :classes, :skills, :skill_points
 end
