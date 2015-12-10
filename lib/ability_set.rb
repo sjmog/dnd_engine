@@ -1,12 +1,12 @@
 class AbilitySet
-  def initialize
+  def initialize(strength: 10, dexterity: 10, constitution: 10, intelligence: 10, wisdom: 10, charisma: 10)
     @abilities_table = {
-      strength: 10,
-      dexterity: 10,
-      constitution: 10,
-      intelligence: 10,
-      wisdom: 10,
-      charisma: 10
+      strength: strength,
+      dexterity: dexterity,
+      constitution: constitution,
+      intelligence: intelligence,
+      wisdom: wisdom,
+      charisma: charisma
     }
   end
 

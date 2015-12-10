@@ -1,3 +1,4 @@
+require 'support/data_mapper_setup'
 require 'support/rolls_helper'
 
 RSpec.configure do |config|

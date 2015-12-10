@@ -1,22 +1,11 @@
 class Character
-  def initialize(abilities: AbilitySet.new, classes: [BaseClass.new], skills: SkillSet.new)
+  attr_reader :race, :items, :abilities, :skills
+  def initialize(race: Race.new, abilities: AbilitySet.new, classes: [BaseClass.new], skills: SkillSet.new, items: ItemSet.new)
+    @race = race
     @abilities = abilities
     @skills = skills
     @classes = classes
-    @skill_points = 4
-  end
-
-  def ability(ability)
-    abilities.ability(ability)
-  end
-
-  def skill(skill)
-    skills.skill(skill)
-  end
-
-  def increment_skill(skill)
-    raise 'No skill points available' unless skill_points > 0
-    skills.increment_skill(skill)
+    @items = items
   end
 
   def class_names
@@ -25,5 +14,5 @@ class Character
 
   private
 
-  attr_reader :abilities, :classes, :skills, :skill_points
+  attr_reader :classes
 end
